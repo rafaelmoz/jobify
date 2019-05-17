@@ -187,13 +187,3 @@ app.post('/admin/categoria/editar-categoria/:id', async(request, response) =>{
     await db.run(`update tblcategorias set categoria= '${categoria}' where id = ${id}`)    
     response.redirect('/admin/categoria/categorias')
 })
-
-
-//Criando a conexão com o servidor Local na porta 3000
-app.listen(port, (err) =>{
-     if(err){
-         console.log('Não foi possível iniciar o servidor')
-     }else{
-        console.log('Servidor rodando...')
-     }
- })
