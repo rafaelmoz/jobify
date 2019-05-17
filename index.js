@@ -1,4 +1,4 @@
-////
+﻿////
 ///
 // Declaração das bibliotecas
 const express = require('express')
@@ -9,7 +9,8 @@ const bodyParser = require('body-parser')
 const path = require('path')
 
 //Configuração para rodar no ZEIT
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8080
+app.listen(port)
 
 
 //Checar se esta na máquina local ou no server, para não acessar o /admin
@@ -46,7 +47,8 @@ app.set('view engine', 'ejs')
 ////
 ///
 // Indicando que os nossos arquivos estaticos estão na pasta public
-app.use(express.static(path.join(__dirname, 'public')))
+//app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(__dirname + '/public'))
 
 // Indicando que toda a requisição que passar vai ser o bodyParser
 app.use(bodyParser.urlencoded({extended: true}))
